@@ -18,10 +18,10 @@ public class ThemDM extends JFrame implements ActionListener
 	JFrame jf;
 	JTextField tenDM,maDM;
 	JLabel TenDM,MaDM,ln;
-    JButton b_save,b_clear;
+    	JButton b_save,b_clear;
 	Font f;
     
-    Connection con;
+    	Connection con;
 	PreparedStatement ps;
 	Statement stmt;
 	ResultSet rs;
@@ -30,9 +30,9 @@ public class ThemDM extends JFrame implements ActionListener
 	 	       //all cells false
 	 	       return false;
 	 	    }
-	   };
-    JTable tabGrid = new JTable(model);
-    JScrollPane scrlPane = new JScrollPane(tabGrid);
+	};
+    	JTable tabGrid = new JTable(model);
+    	JScrollPane scrlPane = new JScrollPane(tabGrid);
 
 	ThemDM()
 	{
@@ -40,11 +40,11 @@ public class ThemDM extends JFrame implements ActionListener
 		f = new Font("Times New Roman",Font.BOLD,15);
 		jf.setLayout(null);
 
-	    ln=new JLabel("Thêm danh mục mới");
-	    ln.setFont(new Font("Times New Roman",Font.BOLD,25));
-	    ln.setForeground(Color.blue);
-	    ln.setBounds(300,30,400,40);
-	    jf.add(ln);
+	    	ln=new JLabel("Thêm danh mục mới");
+	    	ln.setFont(new Font("Times New Roman",Font.BOLD,25));
+	    	ln.setForeground(Color.blue);
+	    	ln.setBounds(300,30,400,40);
+	    	jf.add(ln);
 
 		TenDM = new JLabel("Tên danh mục");
 		TenDM.setBounds(50,100,150,25);
@@ -58,58 +58,58 @@ public class ThemDM extends JFrame implements ActionListener
 		MaDM.setBounds(50,140,150,25);
 		jf.add(MaDM);
 
-    	maDM = new JTextField(20);
+    		maDM = new JTextField(20);
 		maDM.setBounds(250,140,150,25);maDM.setToolTipText("Điền mã danh mục");
 		jf.add(maDM); 	
 		
-        b_save = new JButton("Lưu",new ImageIcon("images//save.png"));
-        b_save.setBounds(150,330,110,35);b_save.setToolTipText("Click để lưu thông tin");
+        	b_save = new JButton("Lưu",new ImageIcon("images//save.png"));
+        	b_save.setBounds(150,330,110,35);b_save.setToolTipText("Click để lưu thông tin");
 		jf.add(b_save);b_save.addActionListener(this);
 
 		b_clear = new JButton("Làm mới",new ImageIcon("images//clear.png"));
 		b_clear.setBounds(550,330,110,35);b_clear.setToolTipText("Click để xóa toàn bộ thông tin đã điền");
-	    jf.add(b_clear); b_clear.addActionListener(this);
+		jf.add(b_clear); b_clear.addActionListener(this);
 
-	    scrlPane.setBounds(0,380,900,600);
-        jf.add(scrlPane);
-        tabGrid.setFont(new Font ("Times New Roman",0,15));
+	    	scrlPane.setBounds(0,380,900,600);
+        	jf.add(scrlPane);
+        	tabGrid.setFont(new Font ("Times New Roman",0,15));
 
-        model.addColumn("Tên danh mục");
-        model.addColumn("Mã danh mục");
-        int r = 0;
-        try
-        {
+        	model.addColumn("Tên danh mục");
+        	model.addColumn("Mã danh mục");
+        	int r = 0;
+        	try
+        	{
 
-        	//Class.forName("com.mysql.jdbc.Driver");
-   		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mobileshop","root","thanhcong1107");
-   		System.out.println("Connected to database.");
-   		stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-           rs = stmt.executeQuery("select * from mobileshop.danhmuc");
-             while(rs.next())
-               {
-               	model.insertRow(r++,new Object[]{rs.getString(2),rs.getString(1)});
+        		//Class.forName("com.mysql.jdbc.Driver");
+   			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mobileshop","root","thanhcong1107");
+   			System.out.println("Connected to database.");
+   			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+           		rs = stmt.executeQuery("select * from mobileshop.danhmuc");
+             		while(rs.next())
+               		{
+               			model.insertRow(r++,new Object[]{rs.getString(2),rs.getString(1)});
 
-               }
+               		}
 
-                con.close();
-          }
-         catch(SQLException se)
-          {
-          	  System.out.println(se);
-             JOptionPane.showMessageDialog(null,"SQL Error:"+se);
-          }
-          catch(Exception e)
-          {
-          	   System.out.println(e);
-              JOptionPane.showMessageDialog(null,"Error:"+e);
-          }
+                	con.close();
+          	}
+         	catch(SQLException se)
+          	{
+          	  	System.out.println(se);
+             		JOptionPane.showMessageDialog(null,"SQL Error:"+se);
+          	}
+          	catch(Exception e)
+          	{
+          	   	System.out.println(e);
+              		JOptionPane.showMessageDialog(null,"Error:"+e);
+          	}
         
-	     jf.setTitle("Thêm danh mục mới ");
-	     jf.setSize(900,700);
-		 jf.setLocation(20,20);
-		 jf.setResizable(false);
-		 jf.getContentPane().setBackground(Color.cyan);
-	     jf.setVisible(true);
+	     	jf.setTitle("Thêm danh mục mới ");
+	     	jf.setSize(900,700);
+		jf.setLocation(20,20);
+		jf.setResizable(false);
+		jf.getContentPane().setBackground(Color.cyan);
+	     	jf.setVisible(true);
 	}
 	
 	
@@ -170,7 +170,8 @@ public class ThemDM extends JFrame implements ActionListener
 		}
  
 		else if(ae.getSource()==b_clear)
-		{   tenDM.setText("");
+		{   
+			tenDM.setText("");
 			maDM.setText("");
 			
 
