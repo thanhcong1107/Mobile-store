@@ -21,66 +21,66 @@ public class HoaDonBanHang extends JFrame
     	       //all cells false
     	       return false;
     	    }
-      };
+    };
     JTable tabGrid = new JTable(model);
     JScrollPane scrlPane = new JScrollPane(tabGrid);
 
-  public HoaDonBanHang()
-  {
-    jf.setLayout(null);
+    public HoaDonBanHang()
+    {
+    	jf.setLayout(null);
   	ln = new JLabel("Danh sách hóa đơn");
-    ln.setFont(new Font("Times New Roman",Font.BOLD,25));
-    ln.setForeground(Color.blue);
-    ln.setBounds(300,30,300,25);
-    jf.add(ln);
+    	ln.setFont(new Font("Times New Roman",Font.BOLD,25));
+    	ln.setForeground(Color.blue);
+    	ln.setBounds(300,30,300,25);
+    	jf.add(ln);
 
-    scrlPane.setBounds(0,80,900,600);
-    jf.add(scrlPane);
-    tabGrid.setFont(new Font ("Times New Roman",0,14));
+    	scrlPane.setBounds(0,80,900,600);
+    	jf.add(scrlPane);
+    	tabGrid.setFont(new Font ("Times New Roman",0,14));
 
-    model.addColumn("Mã hóa đơn");
-    model.addColumn("Mã nhân viên");
-    model.addColumn("Tên khách hàng");
-    model.addColumn("Số điện thoại KH");
-    model.addColumn("Ngày lập");
-    model.addColumn("Tổng tiền");
-    
+    	model.addColumn("Mã hóa đơn");
+    	model.addColumn("Mã nhân viên");
+    	model.addColumn("Tên khách hàng");
+    	model.addColumn("Số điện thoại KH");
+    	model.addColumn("Ngày lập");
+    	model.addColumn("Tổng tiền");
+    	
 
-  	 int r = 0;
-     try
-     {
+  	int r = 0;
+     	try
+     	{
 
-     	//Class.forName("com.mysql.jdbc.Driver");
+     		//Class.forName("com.mysql.jdbc.Driver");
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/mobileshop","root","thanhcong1107");
 		System.out.println("Connected to database.");
 		stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-        rs = stmt.executeQuery("select * from mobileshop.hoadon");
-          while(rs.next())
-            {
-            	model.insertRow(r++,new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getString(6)});
+        	rs = stmt.executeQuery("select * from mobileshop.hoadon");
+          	while(rs.next())
+            	{
+            		model.insertRow(r++,new Object[]{rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getDate(5),rs.getString(6)});
 
-            }
+            	}
 
-             con.close();
-       }
-      catch(SQLException se)
-       {
-       	  System.out.println(se);
-          JOptionPane.showMessageDialog(null,"SQL Error:"+se);
-       }
-       catch(Exception e)
-       {
-       	   System.out.println(e);
-           JOptionPane.showMessageDialog(null,"Error:"+e);
-       }
+             	con.close();
+       	}
+      	catch(SQLException se)
+       	{
+       	  	System.out.println(se);
+          	JOptionPane.showMessageDialog(null,"SQL Error:"+se);
+       	}
+       	catch(Exception e)
+       	{
+       	   	System.out.println(e);
+           	JOptionPane.showMessageDialog(null,"Error:"+e);
+       	}
 
 
-    jf.setTitle("Hóa đơn bán hàng");
-    jf.setSize(900,700);
+    	jf.setTitle("Hóa đơn bán hàng");
+    	jf.setSize(900,700);
 	jf.setLocation(20,20);
 	jf.setResizable(true);
-    jf.getContentPane().setBackground(Color.cyan);
-    jf.setVisible(true);
+    	jf.getContentPane().setBackground(Color.cyan);
+    	jf.setVisible(true);
   }
 
 
