@@ -15,7 +15,7 @@ public class Nhanvienbanhang extends JFrame implements ActionListener
 
 	public Nhanvienbanhang()
 	{
-        jf=new JFrame();
+        	jf=new JFrame();
 		gbl=new GridBagLayout();
 		jf.setLayout(gbl);
 
@@ -43,59 +43,25 @@ public class Nhanvienbanhang extends JFrame implements ActionListener
 		m2.add(m2_2);
 		m2_3 = new JMenuItem("Chi tiết hóa đơn",new ImageIcon("images//report.png"));
 		m2.add(m2_3);
-		/*
-		m2_4 = new JMenuItem("Xóa sản phẩm",new ImageIcon("images//delete.png"));
-		m2.add(m2_4);
-	    m2_5 = new JMenuItem("Danh sách sản phẩm",new ImageIcon("images//all.png"));
-		m2.add(m2_5);
 		
-		
-		m3=new JMenu("Quản lý danh mục");
-	    mbar.add(m3);
-	    m3_1 = new JMenuItem("Thêm danh mục",new ImageIcon("images//addnew.png"));
-		m3.add(m3_1);
-		m3_2 = new JMenuItem("Chỉnh sửa thông tin danh mục",new ImageIcon("images//update.png"));
-		m3.add(m3_2);
-		m3_3 = new JMenuItem("Xóa danh mục",new ImageIcon("images//delete.png"));
-		m3.add(m3_3);
-
-		m4=new JMenu("Hóa đơn");
-		mbar.add(m4);
-		m4_1 = new JMenuItem("Hóa đơn bán hàng",new ImageIcon("images//report.png"));
-		m4.add(m4_1);
-		m4_2 = new JMenuItem("Báo cáo doanh thu",new ImageIcon("images//report.png"));
-		m4.add(m4_2);
-		*/
 		m5=new JMenu("Thoát");
 		mbar.add(m5);
 		m5_1 = new JMenuItem("Thoát",new ImageIcon("images//exit.png"));
 		m5.add(m5_1);
 
-        m1_1.addActionListener(this);
+        	m1_1.addActionListener(this);
 		m1_2.addActionListener(this);
-		//m1_3.addActionListener(this);
-		//m1_4.addActionListener(this);
-    	//m1_5.addActionListener(this);
 
 		m2_1.addActionListener(this);
 		m2_2.addActionListener(this);
 		m2_3.addActionListener(this);
-		//m2_4.addActionListener(this);
-	    //m2_5.addActionListener(this);
-
-//		m3_1.addActionListener(this);
-//		m3_2.addActionListener(this);
-//		m3_3.addActionListener(this);
-//		
-//		m4_1.addActionListener(this);
-//		m4_2.addActionListener(this);
 		
 		m5_1.addActionListener(this);
 
 		jf.setTitle("Nhân viên bán hàng");
 		jf.setLocation(20,20);
-	    jf.setSize(900,700);
-	    jf.setResizable(true);
+	   	jf.setSize(900,700);
+	    	jf.setResizable(true);
 		jf.getContentPane().setBackground(Color.cyan);
 		jf.setVisible(true);
 
